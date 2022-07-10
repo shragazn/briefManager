@@ -6,7 +6,7 @@ import Product from "../Product";
 import { MUITheme } from "../Utils/Theme/Theme";
 import { ProjectContainer } from "./StyledComponents";
 import { animated, useSpring } from "react-spring";
-import ProjectHeader from "./ProjectID/ProjectHeader/ProjectHeader";
+import ProjectHeader from "./ProjectHeader/ProjectHeader";
 import { Project as ProjectType } from "../Types/ProjectTypes";
 
 export default function Project(projectInfo: ProjectType) {
