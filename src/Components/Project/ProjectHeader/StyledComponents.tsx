@@ -13,7 +13,7 @@ export const ProjectInfo = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  justify-content: space-between;
+  justify-content: space-between; //TODO: add flex start if product
   height: 100%;
 `;
 

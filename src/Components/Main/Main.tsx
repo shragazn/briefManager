@@ -23,6 +23,17 @@ export default function Main({}: Props) {
           { userName: "רון כהן", link: "" },
           { userName: "מאור וקנין", link: "" },
         ]}
+        products={[
+          {
+            brief: 55555,
+            date: "21.03.2022",
+            details: {},
+            name: "סרט כלשהו",
+            process: "בעבודה",
+            type: "סרט",
+            users: [{ userName: "ido zrihen", link: "" }],
+          },
+        ]}
       ></Project>
     </MainContainer>
   );

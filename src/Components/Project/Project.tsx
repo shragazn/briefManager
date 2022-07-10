@@ -21,11 +21,14 @@ export default function Project(projectInfo: ProjectType) {
       <ProjectContainer>
         <ProjectHeader {...projectInfo}></ProjectHeader>
         <Collapse in={showProducts} onClick={handleShow}>
-          <Product></Product>
+          {projectInfo.products &&
+            projectInfo.products.map((product) => <Product {...product} />)}
         </Collapse>
-        <animated.div style={styles}>
-          <FontAwesomeIcon icon={faAngleDown} onClick={handleShow} />
-        </animated.div>
+        {projectInfo.products && (
+          <animated.div style={styles}>
+            <FontAwesomeIcon icon={faAngleDown} onClick={handleShow} />
+          </animated.div>
+        )}
       </ProjectContainer>
     </ThemeProvider>
   );
