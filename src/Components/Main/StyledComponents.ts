@@ -14,4 +14,5 @@ export const MainContainer = styled.div<{ left?: number }>`
   color: ${({ theme }) => theme.colors.text.primary};
   font-size: ${({ theme }) => theme.font.main.size};
   font-weight: ${({ theme }) => theme.font.main.weight};
+  overflow: auto;
 `;

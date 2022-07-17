@@ -9,12 +9,15 @@ export const ProjectHeaderContainer = styled.div`
   gap: 50px;
 `;
 
-export const ProjectInfo = styled.div`
+interface ProjectInfoProps {
+  justify?: string;
+}
+
+export const ProjectInfo = styled.div<ProjectInfoProps>`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  justify-content: space-between; //TODO: add flex start if product
-  height: 100%;
+  justify-content: ${({ justify }) => justify || "flex-start"};
 `;
 
 export const NameContainer = styled.div`

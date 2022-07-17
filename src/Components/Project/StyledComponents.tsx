@@ -7,5 +7,6 @@ export const ProjectContainer = styled.div`
   background-color: #ffffff;
   padding: 30px 30px 5px;
   border-radius: 10px;
-  min-width: 500px;
+  min-width: 65%;
+  margin: 10px 0;
 `;

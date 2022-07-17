@@ -15,11 +15,21 @@ export const H3 = styled.h3`
   color: ${({ theme }) => theme.colors.text.primary};
   font-size: ${({ theme }) => theme.font.h3.size};
   font-weight: ${({ theme }) => theme.font.h3.weight};
+  margin: 0;
 `;
 
-export const ProjectDate = styled.div`
+export const HR = styled.hr`
+  width: 100%;
+  opacity: 25%;
+`;
+
+interface DateProps {
+  isProduct?: boolean;
+}
+
+export const ProjectDate = styled.div<DateProps>`
   color: ${({ theme }) => theme.colors.text.secondary};
   font-size: ${({ theme }) => theme.font.main.size};
   font-weight: ${({ theme }) => theme.font.main.weight};
-  margin-top: 15px;
+  margin-top: ${({ isProduct }) => (isProduct ? 0 : "15px")};
 `;

@@ -8,6 +8,9 @@ import { ProjectContainer } from "./StyledComponents";
 import { animated, useSpring } from "react-spring";
 import ProjectHeader from "./ProjectHeader/ProjectHeader";
 import { Project as ProjectType } from "../Types/ProjectTypes";
+import { HR } from "../Utils/Text/StyledComponents";
+import { BriefNumber } from "./ProjectID/StyledComponents";
+import { ProductContainer } from "../Product/StyledComponents";
 
 export default function Project(projectInfo: ProjectType) {
   const [showProducts, setShowProducts] = useState(true);
@@ -20,9 +23,20 @@ export default function Project(projectInfo: ProjectType) {
     <ThemeProvider theme={MUITheme}>
       <ProjectContainer>
         <ProjectHeader {...projectInfo}></ProjectHeader>
-        <Collapse in={showProducts} onClick={handleShow}>
-          {projectInfo.products &&
-            projectInfo.products.map((product) => <Product {...product} />)}
+        <HR />
+        <Collapse in={showProducts}>
+          <ProductContainer>
+            {projectInfo.products &&
+              projectInfo.products.map((product) => (
+                <>
+                  <Product
+                    {...product}
+                    brief={`${projectInfo.brief}-${product.brief}`}
+                  />
+                  <HR />
+                </>
+              ))}
+          </ProductContainer>
         </Collapse>
         {projectInfo.products && (
           <animated.div style={styles}>
