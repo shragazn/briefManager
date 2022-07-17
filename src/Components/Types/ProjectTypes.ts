@@ -7,7 +7,7 @@ export interface User {
 export interface ProjectDetails {
   name: string;
   date: string;
-  brief: number;
+  brief: number | string;
   type?: string;
   process?: Process;
   users?: User[];
@@ -21,6 +21,7 @@ export interface Project extends ProjectDetails {
 //      Product    //
 export interface Product extends ProjectDetails {
   details: ProductDetails;
+  description?: string;
 }
 
 export interface ProductDetails {
