@@ -27,12 +27,9 @@ export const BriefsContainer = styled.div`
 
 export const MainPageContainer = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: row-reverse;
   justify-content: space-between;
   width: calc(100% - 60px);
   margin: 70px 30px 50px 0;
-`;
-
-export const ProjectContainer = styled.div`
-  display: flex;
+  direction: ltr;
 `;
