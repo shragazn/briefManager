@@ -19,9 +19,13 @@ export const Copy = styled.div`
   font-size: 25px;
   gap: 20px;
   margin-bottom: 15px;
+  cursor: pointer;
+  &:hover {
+    color: ${({ theme }) => theme.colors.primary.main};
+  }
 `;
 
-export const BriefNumber = styled.a`
+export const BriefNumberContainer = styled.a`
   color: ${({ theme }) => theme.colors.text.secondary};
   font-size: ${({ theme }) => theme.font.main.size};
   font-weight: ${({ theme }) => theme.font.main.weight};

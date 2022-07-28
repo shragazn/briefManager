@@ -1,6 +1,6 @@
 import React from "react";
-import { Project } from "../../Types/ProjectTypes";
-import { H2, ProjectDate } from "../../Utils/Text/StyledComponents";
+import { Project } from "../../../Types/ProjectTypes";
+import { H2, ProjectDate } from "../../../Utils/Text/StyledComponents";
 import ProjectID from "../ProjectID/ProjectID";
 import {
   NameContainer,
@@ -19,7 +19,7 @@ export default function ProjectHeader({
 }: Project) {
   return (
     <ProjectHeaderContainer>
-      <ProjectInfo>
+      <ProjectInfo justify="space-between">
         <NameContainer>
           <H2>{name}</H2>
           <span>{client}</span>

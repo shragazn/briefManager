@@ -19,7 +19,7 @@ export const NavHeaderContainer = styled.div`
   margin: 5px 0px;
 `;
 
-export const IconContainer = styled.div`
+export const NavIconContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.icon.container};
   color: ${({ theme, color }) => color || theme.colors.icon.main};
   margin: 0 0px;

@@ -1,15 +1,8 @@
-import { faCopy } from "@fortawesome/free-regular-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Chip } from "@mui/material";
-import React from "react";
-import { ProjectIDInfo } from "../../Types/ProjectTypes";
-import { TagContainer } from "../../Utils/Tags/Tags";
-import {
-  BriefNumber,
-  Copy,
-  CopyContainer,
-  ProjectIDContainer,
-} from "./StyledComponents";
+import { ProjectIDInfo } from "../../../Types/ProjectTypes";
+import BriefNumber from "../../../Utils/BriefNumber";
+import { TagContainer } from "../../../Utils/Tags/Tags";
+import { CopyContainer, ProjectIDContainer } from "./StyledComponents";
 
 export default function ProjectID({
   brief,
@@ -31,10 +24,7 @@ export default function ProjectID({
   return (
     <ProjectIDContainer>
       <CopyContainer>
-        <Copy>
-          <FontAwesomeIcon icon={faCopy} />
-          <BriefNumber>{brief}</BriefNumber>
-        </Copy>
+        <BriefNumber brief={brief} />
         <TagContainer>
           {process && <Chip color={processColor} label={process} />}
           {type && <Chip color="secondary" label={type} />}
@@ -42,8 +32,13 @@ export default function ProjectID({
       </CopyContainer>
       <TagContainer>
         {users &&
-          users.map((user) => (
-            <Chip color="primary" label={user.userName} onClick={goToUser} />
+          users.map(({ userName, link }) => (
+            <Chip
+              color="primary"
+              label={userName}
+              onClick={goToUser}
+              key={userName + link}
+            />
           ))}
       </TagContainer>
     </ProjectIDContainer>

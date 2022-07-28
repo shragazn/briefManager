@@ -17,6 +17,7 @@ export const ProjectInfo = styled.div<ProjectInfoProps>`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  height: 100%;
   justify-content: ${({ justify }) => justify || "flex-start"};
 `;
 

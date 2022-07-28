@@ -1,5 +1,5 @@
 import React from "react";
-import { H3 } from "../../Utils/Text/StyledComponents";
+import { H3 } from "../../../../Utils/Text/StyledComponents";
 import { DetailContainer } from "./StyledComponents";
 
 type Props = { fieldName: string; value: string | number };

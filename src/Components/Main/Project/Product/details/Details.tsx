@@ -1,5 +1,5 @@
 import React from "react";
-import { ProductDetails } from "../../Types/ProjectTypes";
+import { ProductDetails } from "../../../../Types/ProjectTypes";
 import Detail from "../detail/Detail";
 
 export default function Details({ PO, invoice, size }: ProductDetails) {

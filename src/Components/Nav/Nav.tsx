@@ -4,13 +4,13 @@ import { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import {
   Divider,
-  IconContainer,
+  NavIconContainer,
   NavContainer,
   NavHeaderContainer,
 } from "./StyledComponents";
 
 interface link {
-  link: string;
+  path: string;
   icon: IconDefinition;
 }
 
@@ -23,16 +23,16 @@ export default function Nav({ links }: Props) {
   return (
     <NavContainer>
       <NavHeaderContainer>
-        <IconContainer>
+        <NavIconContainer>
           <FontAwesomeIcon icon={faUser} />
-        </IconContainer>
+        </NavIconContainer>
       </NavHeaderContainer>
       <Divider />
-      {links.map(({ link, icon }) => (
-        <Link to={link} key={link}>
-          <IconContainer key={link}>
+      {links.map(({ path, icon }) => (
+        <Link to={path} key={path}>
+          <NavIconContainer key={path}>
             <FontAwesomeIcon icon={icon} />
-          </IconContainer>
+          </NavIconContainer>
         </Link>
       ))}
     </NavContainer>
