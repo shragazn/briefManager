@@ -11,21 +11,27 @@ type Props = {
   icon?: "search";
   value: string;
   setValue: (value: string) => void;
-  onSubmit?: (e: FormEvent<HTMLFormElement>) => void;
+  onSubmit?: (e: any) => void;
 };
 
 export default function IconInput({
   icon,
   value,
   setValue,
-  onSubmit = (e) => {
+  onSubmit = (e?) => {
     e.preventDefault();
   },
 }: Props) {
   return (
     <IconInputContainer>
-      {icon == "search" && <FontAwesomeIcon icon={faSearch} />}
       <StyledForm onSubmit={onSubmit}>
+        {icon == "search" && (
+          <FontAwesomeIcon
+            icon={faSearch}
+            style={{ cursor: "pointer" }}
+            onClick={onSubmit}
+          />
+        )}
         <StyledIconInput
           value={value}
           onChange={(e) => setValue(e.target.value)}
