@@ -11,6 +11,21 @@ export const H2 = styled.h2`
   font-weight: ${({ theme }) => theme.font.h2.weight};
   margin: 0;
 `;
+export const H2Input = styled.input`
+  color: ${({ theme }) => theme.colors.text.primary};
+  font-size: ${({ theme }) => theme.font.h2.size};
+  font-weight: ${({ theme }) => theme.font.h2.weight};
+  display: block;
+
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  margin: 0;
+  text-align: right;
+  padding: 0;
+  border: none;
+`;
 export const H3 = styled.h3`
   color: ${({ theme }) => theme.colors.text.primary};
   font-size: ${({ theme }) => theme.font.h3.size};

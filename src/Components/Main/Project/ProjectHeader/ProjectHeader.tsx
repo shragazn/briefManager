@@ -1,12 +1,16 @@
 import React from "react";
 import { Project } from "../../../Types/ProjectTypes";
-import { H2, ProjectDate } from "../../../Utils/Text/StyledComponents";
+import { H2, H2Input, ProjectDate } from "../../../Utils/Text/StyledComponents";
 import ProjectID from "../ProjectID/ProjectID";
 import {
   NameContainer,
   ProjectHeaderContainer,
   ProjectInfo,
 } from "./StyledComponents";
+
+interface HeaderProps extends Project {
+  isEditing?: boolean;
+}
 
 export default function ProjectHeader({
   name,
@@ -16,12 +20,13 @@ export default function ProjectHeader({
   users,
   type,
   process,
-}: Project) {
+  isEditing,
+}: HeaderProps) {
   return (
     <ProjectHeaderContainer>
       <ProjectInfo justify="space-between">
         <NameContainer>
-          <H2>{name}</H2>
+          {isEditing === true ? <H2Input value={name} /> : <H2>{name}</H2>}
           <span>{client}</span>
         </NameContainer>
         <ProjectDate>{date}</ProjectDate>

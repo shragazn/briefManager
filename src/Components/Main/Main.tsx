@@ -4,6 +4,8 @@ import { BriefsContainer, MainPageContainer } from "./StyledComponents";
 import { Project as ProjectType } from "../Types/ProjectTypes";
 import Filters from "./Filters";
 import { useEffect, useState } from "react";
+import { useInView } from "react-intersection-observer";
+
 type Props = {};
 
 const MOCK = [
@@ -66,7 +68,107 @@ const MOCK = [
     ],
     products: [
       {
-        brief: 55798,
+        brief: 55098,
+        date: "21.03.2022",
+        details: { PO: 15528, invoice: 15528, size: "450*500" },
+        description: "טקסט לדוגמה שמתאר את הפרוייקט",
+        name: "סרט כלשהו",
+        process: "בעבודה",
+        type: "סרט",
+        users: [{ userName: "דניאל חדד", link: "" }],
+      },
+    ],
+  },
+  {
+    name: "קמפיין כנס שקר כלשהו",
+    client: "מיקרוסופט",
+    date: "21.03.2022",
+    brief: 12305,
+    type: "מיניסייט",
+    process: "בעבודה",
+    users: [
+      { userName: "עידו זריהן", link: "" },
+      { userName: "רון כהן", link: "" },
+      { userName: "מאור וקנין", link: "" },
+    ],
+    products: [
+      {
+        brief: 55738,
+        date: "21.03.2022",
+        details: { PO: 15528, invoice: 15528, size: "450*500" },
+        description: "טקסט לדוגמה שמתאר את הפרוייקט",
+        name: "סרט כלשהו",
+        process: "בעבודה",
+        type: "סרט",
+        users: [{ userName: "דניאל חדד", link: "" }],
+      },
+    ],
+  },
+  {
+    name: "קמפיין כנס שקר כלשהו",
+    client: "מיקרוסופט",
+    date: "21.03.2022",
+    brief: 92345,
+    type: "מיניסייט",
+    process: "בעבודה",
+    users: [
+      { userName: "עידו זריהן", link: "" },
+      { userName: "רון כהן", link: "" },
+      { userName: "מאור וקנין", link: "" },
+    ],
+    products: [
+      {
+        brief: 55698,
+        date: "21.03.2022",
+        details: { PO: 15528, invoice: 15528, size: "450*500" },
+        description: "טקסט לדוגמה שמתאר את הפרוייקט",
+        name: "סרט כלשהו",
+        process: "בעבודה",
+        type: "סרט",
+        users: [{ userName: "דניאל חדד", link: "" }],
+      },
+    ],
+  },
+  {
+    name: "קמפיין כנס שקר כלשהו",
+    client: "מיקרוסופט",
+    date: "21.03.2022",
+    brief: 19345,
+    type: "מיניסייט",
+    process: "בעבודה",
+    users: [
+      { userName: "עידו זריהן", link: "" },
+      { userName: "רון כהן", link: "" },
+      { userName: "מאור וקנין", link: "" },
+    ],
+    products: [
+      {
+        brief: 56498,
+        date: "21.03.2022",
+        details: { PO: 15528, invoice: 15528, size: "450*500" },
+        description: "טקסט לדוגמה שמתאר את הפרוייקט",
+        name: "סרט כלשהו",
+        process: "בעבודה",
+        type: "סרט",
+        users: [{ userName: "דניאל חדד", link: "" }],
+      },
+    ],
+  },
+  {
+    name: "קמפיין כנס שקר כלשהו",
+    client: "מיקרוסופט",
+    date: "21.03.2022",
+    brief: 12845,
+    type: "מיניסייט",
+    process: "בעבודה",
+    users: [
+      { userName: "עידו זריהן", link: "" },
+      { userName: "רון כהן", link: "" },
+      { userName: "מאור וקנין", link: "" },
+    ],
+    products: [
+      {
+        brief: 54798,
         date: "21.03.2022",
         details: { PO: 15528, invoice: 15528, size: "450*500" },
         description: "טקסט לדוגמה שמתאר את הפרוייקט",
@@ -81,6 +183,12 @@ const MOCK = [
 export default function Main({}: Props) {
   const [filters, setFilters] = useState<string[]>([]);
   const [filteredData, setFilteredData] = useState(MOCK);
+  const { ref, inView } = useInView();
+
+  useEffect(() => {
+    if (inView) console.log(inView);
+  }, [inView]);
+
   const handleTagDelete = (i: number) => {
     setFilters(filters.filter((item, idx) => i != idx));
   };
@@ -108,9 +216,23 @@ export default function Main({}: Props) {
     <MainPageContainer>
       <BriefsContainer>
         <H1>בריפים כלליים</H1>
-        {filteredData.map((project) => (
-          <Project {...project} key={`${project.brief} ${project.client}`} />
-        ))}
+        {filteredData.map((project, i) => {
+          if (i == filteredData.length - 1)
+            return (
+              <Project
+                {...project}
+                key={`${project.brief} ${project.client}`}
+                ref={ref}
+              />
+            );
+          else
+            return (
+              <Project
+                {...project}
+                key={`${project.brief} ${project.client}`}
+              />
+            );
+        })}
       </BriefsContainer>
       <Filters
         tags={filters}

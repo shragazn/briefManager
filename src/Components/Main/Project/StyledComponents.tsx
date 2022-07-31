@@ -23,10 +23,15 @@ export const IconContainer = styled.div<IconContainerProps>`
   cursor: pointer;
 `;
 
-export const EditWrapper = styled.div`
+interface EditWrapperProps {
+  readonly isEditing?: boolean;
+}
+
+export const EditWrapper = styled.div<EditWrapperProps>`
   display: flex;
   flex-direction: row-reverse;
   width: 100%;
   gap: 20px;
   color: ${({ theme }) => theme.colors.text.primary};
+  z-index: ${({ isEditing }) => isEditing && 1};
 `;
